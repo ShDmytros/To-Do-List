@@ -1,8 +1,8 @@
 const TASKS_LIST_SAVED = "tasks-list"
 
+
 const RenderList = () =>
 {
-    const task_menu = document.querySelector('#task-menu');
     const message = document.querySelector('#input-message');
     const send_button = document.querySelector('#send-message');
 
@@ -10,7 +10,6 @@ const RenderList = () =>
     list.classList.add("hide");
     
     send_button.addEventListener("click", () => AddInputTask(list, message)); 
-
 
     const deleteAll = document.createElement('div');
     deleteAll.classList.add("delete-button");
@@ -21,12 +20,14 @@ const RenderList = () =>
     RenderTasks(list);
 };
 
+
 const AddInputTask = (list, message) =>
 {
     if (message.value === "" ) return;
     AddTask(list, message.value);
     message.value = "";
-}
+};
+
 
 const AddTask = (list, text) =>
 {
@@ -50,6 +51,7 @@ const AddTask = (list, text) =>
     UpdateTasks(list);
 };
 
+
 const DeleteTask = (list, el) =>
 {
     const welcome = document.querySelector('#welcome');
@@ -65,40 +67,36 @@ const DeleteTask = (list, el) =>
     }
 }
 
+
 const DeleteAll = (list) =>
 {
     const tasks = list.querySelectorAll('.task');
     tasks.forEach(task => DeleteTask(list, task));
 };
 
+
 const UpdateTasks = (tasks_div) => 
 {
     const tasks_li = tasks_div.querySelectorAll("li");
     const tasks = [];
 
-    tasks_li.forEach(li =>
-    {
-        tasks.push(li.textContent.trim());
-        // console.log(li.textContent.trim());
-    });
+    tasks_li.forEach(li => tasks.push(li.textContent.trim()));
 
     localStorage.setItem(TASKS_LIST_SAVED, JSON.stringify(tasks));
 
-    if (JSON.parse(localStorage.getItem(TASKS_LIST_SAVED)).length === 0) {
-        localStorage.removeItem(TASKS_LIST_SAVED);
-    }
+    if (JSON.parse(localStorage.getItem(TASKS_LIST_SAVED)).length === 0) localStorage.removeItem(TASKS_LIST_SAVED);
 };
 
+
 const GetTasks = () => JSON.parse(localStorage.getItem(TASKS_LIST_SAVED)) || [];
+
 
 const RenderTasks = (list) =>
 {
     tasks = GetTasks();
     
-    tasks.forEach(task =>
-    {
-        AddTask(list, task);
-    });
+    tasks.forEach(task => AddTask(list, task));
 }
+
 
 RenderList();
