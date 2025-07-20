@@ -12,7 +12,7 @@ const RenderList = () =>
     send_button.addEventListener("click", () => AddInputedTask(list, message)); 
     message.addEventListener("keydown", function(event) {
         if (event.key === 'Enter') {
-            AddInputedTask(list, message); // викликаємо нашу функцію
+            AddInputedTask(list, message);
         }
     });
 
