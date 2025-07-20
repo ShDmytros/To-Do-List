@@ -1,4 +1,4 @@
-const TASKS_LIST_SAVED = "tasks-list"
+const TASKS_LIST_SAVED = "tasks-list";
 
 
 const RenderList = () =>
@@ -9,7 +9,12 @@ const RenderList = () =>
     const list = document.querySelector('#list-of-tasks');
     list.classList.add("hide");
     
-    send_button.addEventListener("click", () => AddInputTask(list, message)); 
+    send_button.addEventListener("click", () => AddInputedTask(list, message)); 
+    message.addEventListener("keydown", function(event) {
+        if (event.key === 'Enter') {
+            AddInputedTask(list, message); // викликаємо нашу функцію
+        }
+    });
 
     const deleteAll = document.createElement('div');
     deleteAll.classList.add("delete-button");
@@ -21,7 +26,7 @@ const RenderList = () =>
 };
 
 
-const AddInputTask = (list, message) =>
+const AddInputedTask = (list, message) =>
 {
     if (message.value === "" ) return;
     AddTask(list, message.value);

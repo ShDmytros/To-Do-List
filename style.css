@@ -60,6 +60,11 @@ main
     color: black;
     padding: 10px;
     cursor: pointer;
+    transition: 0.2s ease;
+}
+.send-message-button:hover
+{
+    background-color: rgb(201, 201, 201);
 }
 
 .task-menu
