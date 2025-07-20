@@ -3,4 +3,4 @@ _To Do List for evereday tasks_
 
 ---
 
-Link: shdmytros.github.io/To-Do-List/
+Link: https://shdmytros.github.io/To-Do-List/
