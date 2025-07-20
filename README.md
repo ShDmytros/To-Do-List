@@ -1,5 +1,5 @@
 # To-Do-List
-_To Do List for evereday tasks_
+_To Do List for everyday tasks_
 
 ---
 
