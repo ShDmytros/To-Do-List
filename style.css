@@ -19,7 +19,7 @@ main {
 
 .main-content {
   width: 50%;
-  height: 50%;
+  height: 70%;
 
   background-color: darkblue;
   border-radius: 30px;
@@ -97,3 +97,4 @@ main {
 .delete-button:hover {
   background-color: rgb(163, 0, 0);
 }
+
